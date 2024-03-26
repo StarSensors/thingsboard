@@ -23,7 +23,7 @@ import { Component } from '@angular/core';
 })
 export class LogoComponent {
 
-  logo = 'assets/starsensors-logo.svg';
+  logo = 'assets/color-logo-no-bg.svg';
 
   gotoThingsboard(): void {
     window.open('https://thingsboard.io', '_blank');
