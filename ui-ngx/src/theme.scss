@@ -36,41 +36,36 @@ $tb-mat-indigo: (
   A200: #536dfe,
   A400: #3d5afe,
   A700: #304ffe,
-  contrast: (
-    50: rgba(black, 0.87),
+  contrast: (50: rgba(black, 0.87),
     100: rgba(black, 0.87),
     200: rgba(black, 0.87),
-    300: white,
-    400: white,
-    500: white,
-    600: white,
-    700: white,
-    800: white,
-    900: white,
+    300: #171717,
+    400: #171717,
+    500: #171717,
+    600: #171717,
+    700: #171717,
+    800: #171717,
+    900: #171717,
     A100: rgba(black, 0.87),
-    A200: white,
-    A400: white,
-    A700: white,
+    A200: #171717,
+    A400: #171717,
+    A700: #171717,
   )
 );
 
 $tb-primary: mat.define-palette($tb-mat-indigo);
 $tb-accent: mat.define-palette(mat.$deep-orange-palette);
 
-$background: (background: map_get(mat.$grey-palette, 200));
+$background: (
+  background: map_get(mat.$grey-palette, 200)
+);
 
 $tb-theme-background: map_merge(mat.$light-theme-background-palette, $background);
 
-$tb-mat-theme: mat.define-light-theme((
-  color: (
-    primary: $tb-primary,
-    accent: $tb-accent
-  ),
-  typography: mat.define-typography-config(
-    $button: mat.define-typography-level(14px, 36px, 500, $letter-spacing: 0.03125em)
-  ),
-  density: 0
-));
+$tb-mat-theme: mat.define-light-theme((color: (primary: $tb-primary,
+        accent: $tb-accent ),
+      typography: mat.define-typography-config($button: mat.define-typography-level(14px, 36px, 500, $letter-spacing: 0.03125em)),
+      density: 0));
 
 $color: map_get($tb-mat-theme, color);
 $color: map_merge($color, (background: $tb-theme-background));
@@ -95,8 +90,7 @@ $tb-dark-mat-indigo: (
   A200: #536dfe,
   A400: #3d5afe,
   A700: #304ffe,
-  contrast: (
-    50: rgba(black, 0.87),
+  contrast: (50: rgba(black, 0.87),
     100: rgba(black, 0.87),
     200: rgba(black, 0.87),
     300: rgba(black, 0.87),
@@ -117,11 +111,11 @@ $tb-dark-primary: mat.define-palette($tb-dark-mat-indigo);
 
 $tb-dark-theme-background: (
   status-bar: black,
-  app-bar:    map_get($tb-dark-mat-indigo, 900),
+  app-bar: map_get($tb-dark-mat-indigo, 900),
   background: map_get($tb-dark-mat-indigo, 800),
-  hover:      rgba(white, 0.04),
-  card:       map_get($tb-dark-mat-indigo, 800),
-  dialog:     map_get($tb-dark-mat-indigo, 800),
+  hover: rgba(white, 0.04),
+  card: map_get($tb-dark-mat-indigo, 800),
+  dialog: map_get($tb-dark-mat-indigo, 800),
   disabled-button: rgba(white, 0.12),
   raised-button: map-get($tb-dark-mat-indigo, 50),
   focused-button: rgba(white, 0.12),
@@ -133,14 +127,10 @@ $tb-dark-theme-background: (
   tooltip: map_get(mat.$grey-palette, 700),
 );
 
-$tb-dark-theme: mat.define-dark-theme((
-  color: (
-    primary: $tb-dark-primary,
-    accent: $tb-accent
-  ),
-  typography: mat.define-typography-config(),
-  density: 0
-));
+$tb-dark-theme: mat.define-dark-theme((color: (primary: $tb-dark-primary,
+        accent: $tb-accent ),
+      typography: mat.define-typography-config(),
+      density: 0));
 
 $color: map_get($tb-dark-theme, color);
 $color: map_merge($color, (background: $tb-dark-theme-background));
@@ -159,18 +149,21 @@ $tb-dark-theme: map_merge($tb-dark-theme, $color);
       background: mat.get-color-from-palette($background, app-bar);
       color: mat.get-color-from-palette($foreground, text);
     }
+
     &.mat-primary {
       .mat-fab-toolbar-background {
         background: mat.get-color-from-palette($primary);
         color: mat.get-color-from-palette($primary, default-contrast);
       }
     }
+
     &.mat-accent {
       .mat-fab-toolbar-background {
         background: mat.get-color-from-palette($accent);
         color: mat.get-color-from-palette($accent, default-contrast);
       }
     }
+
     &.mat-warn {
       .mat-fab-toolbar-background {
         background: mat.get-color-from-palette($warn);
@@ -197,14 +190,17 @@ $tb-dark-theme: map_merge($tb-dark-theme, $color);
       background: mat.get-color-from-palette($background, app-bar);
       color: mat.get-color-from-palette($foreground, text);
     }
+
     &.mat-primary {
       .mat-fab-toolbar-background {
         @include _mat-toolbar-inverse-color($primary);
       }
     }
+
     mat-toolbar {
       &.mat-primary {
         @include _mat-toolbar-inverse-color($primary);
+
         button.mat-mdc-icon-button {
           .mat-icon {
             color: mat.get-color-from-palette($primary);
@@ -212,6 +208,7 @@ $tb-dark-theme: map_merge($tb-dark-theme, $color);
         }
       }
     }
+
     .mat-mdc-fab {
       &.mat-primary {
         background: mat.get-color-from-palette($primary, default-contrast);
@@ -226,7 +223,7 @@ $tb-dark-theme: map_merge($tb-dark-theme, $color);
   $primary: map-get($theme, primary);
   $warn: map-get($theme, warn);
 
-  mat-toolbar{
+  mat-toolbar {
     &.mat-hue-3 {
       background-color: mat.get-color-from-palette($primary, 'A100');
     }
@@ -249,6 +246,7 @@ $tb-dark-theme: map_merge($tb-dark-theme, $color);
 
   ::-webkit-scrollbar-thumb {
     background: rgba(203, 203, 203, 0.8);
+
     &:hover {
       background: rgba(165, 165, 165, 0.65);
     }
