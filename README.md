@@ -40,3 +40,10 @@ Collect and Visualize your IoT data in minutes by following this [guide](https:/
 ## Licenses
 
 This project is released under [Apache 2.0 License](./LICENSE).
+
+
+## How to build only the Web UI only
+```bash
+cd thingsboard/msa/web-ui
+mvn -T 0.8C license:format clean install -DskipTests -Ddockerfile.skip=false
+```
